@@ -8,181 +8,250 @@
 
 NEURAX Hackathon 3.0 · AI in Cybersecurity
 
-![Stage](https://img.shields.io/badge/Stage-Checkpoint_01-6366f1)
-![Status](https://img.shields.io/badge/Status-Planning-f59e0b)
-![Scope](https://img.shields.io/badge/Data-Authorized_Public_Sources-0891b2)
+![Checkpoint](https://img.shields.io/badge/Checkpoint-01-6366f1)
+![Stage](https://img.shields.io/badge/Stage-Design_Proposal-f59e0b)
+![Scope](https://img.shields.io/badge/Sources-Authorized_Public_Information-0891b2)
 
-Connecting fragmented public records across platforms and time—with evidence behind every association.
+Connecting a person’s scattered public records across platforms and across time—with evidence behind each connection.
 
-[Problem Understanding](#problem-understanding) · [Architecture](#architecture) · [Approach](#approach) · [Demo Plan](#demo-plan)
+[Problem Understanding](#problem-understanding) · [Architecture](#architecture) · [Approach](#approach) · [Checkpoint Progress](#checkpoint-progress)
 
 </div>
 
 > [!NOTE]
-> **Checkpoint 01 — Design proposal**
-> This README describes our intended solution, architecture and evaluation approach. Implementation and testing are pending; diagrams and examples represent proposed behavior.
+> **Current stage:** Problem analysis and README preparation are complete. The architecture below is proposed; implementation, test-data preparation and evaluation are next.
 
 ---
 
 ## Problem Understanding
 
-### One person. Different usernames. A history scattered across sources.
+### Different platforms. Different names. Possibly the same person.
 
-A project appears under a GitHub alias. A conference lists a full name. A company page records a professional role. An older article describes a previous affiliation.
+A person might publish code under a GitHub username, appear on an event page under their full name, and describe their work on a personal website.
 
-These records may describe the same person—but a matching name alone cannot establish that connection.
+An older company page may show a previous role. Another profile may share the same name but belong to someone else.
 
-**Temporal Nexus asks: Which traces belong together, what supports the connection, and when was each fact true?**
+**Which records belong together—and what evidence supports that decision?**
 
-The cybersecurity challenge is avoiding false attribution while examining public identities. Incorrectly merging profiles can associate someone with another person’s work, accounts or activities.
+Temporal Nexus aims to answer this question by discovering public information, checking connections between records, and organizing supported findings over time.
 
-### From scattered records to supported connections
+| Input | Intended output |
+|---|---|
+| An authorized image and limited details, such as a name, username or organization | Candidate identities with explained associations |
+| Clues extracted from the image and approved public sources | Relevant profiles, roles, organizations, events and contributions |
+| Supporting source material and documented dates | Evidence-backed findings, uncertainty labels and a timeline or relationship graph |
 
-*Illustrative scenario only—not collected data or a demonstrated result.*
+The information scope includes projects, products, publications, patents, interviews and technical contributions where evidence is available.
+
+**Finding a page is only the beginning.** The system must establish why it is relevant, what it actually supports, and whether it belongs to the intended person.
+
+### How scattered traces can connect
+
+*Illustrative example—not a collected dataset or working result.*
 
 ```mermaid
 flowchart TD
-    A["Personal website"] -->|"Links to account"| B["GitHub alias"]
-    A -->|"Names project"| C["Project page"]
-    D["Conference biography"] -->|"Links to same project"| C
-    B --> E["Evidence review"]
+    A["Personal website"] -->|"Explicit account link"| B["GitHub username"]
+    A -->|"Lists project"| C["Project page"]
+    D["Event biography"] -->|"References project"| C
+    B --> E["Check evidence"]
     C --> E
     D --> E
-    F["Same-name profile"] -.->|"Name alone"| E
-    E --> G["Supported associations"]
-    E --> H["Unresolved candidates"]
+    F["Same-name profile"] -.->|"Name match only"| E
+    E --> G["Supported connections"]
+    E --> H["Unresolved records"]
+
+    style E fill:#e0e7ff,stroke:#4f46e5,color:#111827
+    style G fill:#dcfce7,stroke:#15803d,color:#111827
+    style H fill:#fef3c7,stroke:#b45309,color:#111827
 ```
-
-| What enters | What the system should produce |
-|---|---|
-| An authorized image and limited context, such as name, username or organization | Candidate identities with supporting and conflicting evidence |
-| Relevant records discovered from approved public sources | Associated profiles, roles, organizations, events and contributions |
-| Source text and documented dates | Structured findings with citations and a timeline or relationship graph |
-
-The intended information scope includes projects, products, publications, patents and technical contributions **where public evidence exists**. An event mention must not automatically become confirmed attendance; missing search results must not become proof of absence.
-
-The contribution goes beyond scraping or reverse-image search: **discovery must lead to reasoned associations, traceable claims and visible uncertainty.**
 
 ---
 
 ## Architecture
 
-### Every connection keeps its evidence
+### Image Intelligence + Limited Text Context
+
+The supplied image should contribute useful clues to the search.
+
+Our proposed **Image Intelligence** module focuses on OCR—reading visible text—and contextual clue extraction. It can extract readable names, usernames, badge text, event titles and organization names. Recognizable branding may suggest additional clues that require confirmation.
+
+For example, a readable hackathon banner can provide an event name that helps narrow a search using the supplied person’s name.
+
+**The central idea is evidence-backed correlation.** Facial appearance alone cannot establish account ownership or verify someone’s professional activities. Temporal Nexus focuses on connecting observable clues with corroborating public records.
+
+> [!IMPORTANT]
+> **A clue guides discovery; it does not prove a claim.**
+> A banner does not establish participation, and an organization logo does not establish employment. Those associations require supporting records.
+
+### From input to an explainable result
 
 ```mermaid
 flowchart TD
-    A["Authorized image"] --> C["Image-context analysis"]
-    B["Limited text context"] --> D["Candidate discovery"]
-    C -->|"Visible textual clues"| D
+    A["Authorized image"] --> B["Image Intelligence"]
+    B -->|"Visible text and contextual clues"| D["Candidate discovery"]
+    C["Limited text context"] --> D
     D --> E["Approved public-source discovery"]
-    E --> F["AI claim extraction"]
-    F --> G["Correlation and verification"]
-    F --> H[("Evidence store")]
-    H --> G
-    G --> I["Supported findings"]
-    G --> J["Uncertain or conflicting records"]
-    I --> K["Profile summary and timeline"]
+    E --> F["AI information extraction"]
+    F --> G[("Evidence store")]
+    F --> H["Correlation and verification"]
+    G --> H
+    H --> I["Supported findings"]
+    H --> J["Uncertain or conflicting records"]
+    I --> K["Summary and timeline or graph"]
     J --> K
+
+    style B fill:#e0f2fe,stroke:#0284c7,color:#111827
+    style H fill:#e0e7ff,stroke:#4f46e5,color:#111827
+    style G fill:#f1f5f9,stroke:#475569,color:#111827
+    style I fill:#dcfce7,stroke:#15803d,color:#111827
+    style J fill:#fef3c7,stroke:#b45309,color:#111827
 ```
 
-| Component | Responsibility |
+| Module | What it does |
 |---|---|
-| **Input and scope** | Capture supplied context, consent scope and permitted sources |
-| **Image-context analysis** | Extract visible text, such as a badge, username or event name, to inform discovery |
-| **Candidate and source discovery** | Find possible identities and relevant public records while keeping candidates separate |
-| **AI extraction** | Structure names, roles, organizations, activities and dates from retrieved material |
-| **Correlation and verification** | Evaluate cross-links, corroborating details and contradictions before associating records |
-| **Evidence store and presentation** | Retain URLs, excerpts, retrieval dates and decision reasons; expose them alongside results |
+| **Input and scope** | Records supplied details, authorization and permitted sources |
+| **Image Intelligence** | Extracts visible textual clues and preserves uncertain readings |
+| **Discovery** | Finds possible identities and relevant public records without prematurely merging candidates |
+| **AI extraction** | Organizes source text into names, roles, organizations, activities and dates |
+| **Verification** | Checks links, supporting details and contradictions across sources |
+| **Evidence and results** | Stores source URLs, excerpts, dates and decision reasons alongside the output |
 
-**AI’s proposed role:** interpreting unstructured source material and suggesting associations. Extracted claims must remain grounded in retrieved evidence; model-generated statements are not evidence themselves.
-
-> [!IMPORTANT]
-> **Image scope remains an open requirement.**
-> The official brief calls for image-associated identity discovery. Our current proposal uses non-facial textual/contextual clues from the image and does not include facial identification or face matching. A plain headshot may yield no usable clues. Organizer acceptance of this scope must be confirmed before the architecture is frozen.
+AI helps interpret source material. Its generated statements are not treated as independent evidence.
 
 ---
 
 ## Approach
 
-### Discover a trace. Examine the connection. Preserve the reason.
+### Discover → Compare → Support → Organize
 
-1. **Establish the test case.** Use our own authorized identity and limited input. Maintain expected findings separately for evaluation, without supplying those answers to the discovery engine.
+**1. Start with an authorized test case**
 
-2. **Build candidate context.** Combine supplied details with usable image-derived text. Record uncertain readings and retain alternative candidates.
+We will prepare our own consented test identity because organizers will not provide a dataset. Expected findings will be kept separately for evaluation, not supplied as answers to the system.
 
-3. **Discover public sources.** Search within approved boundaries and follow relevant links. Potential sources include professional/social profiles, personal websites, company pages, event records and project pages. Platform coverage depends on approval and accessible information.
+**2. Extract clues from the input**
 
-4. **Extract claims with evidence.** Capture what a source actually states, its URL, supporting excerpt and any documented dates.
+Combine the supplied context with readable image clues. Keep the original image region and note uncertain text. Confidence in reading a banner correctly is separate from confidence in an identity association.
 
-5. **Correlate across sources.** Consider explicit account links, aliases and corroborating professional details. A shared name is insufficient; repeated copies of one biography do not count as independent confirmation.
+**3. Discover relevant public sources**
 
-6. **Assess each association and claim.** Explain supporting evidence, contradictions and gaps. Keep uncertain records separate instead of forcing a complete identity.
+Search approved sources and follow relevant account links, aliases and project references. Potential sources include GitHub, LinkedIn, Instagram, X/Twitter, YouTube, personal websites, company pages and event records.
 
-7. **Organize across time.** Present supported activities chronologically and connect entities through evidenced relationships.
+Actual coverage will depend on approval and accessible information; coverage of every platform is not assumed.
 
-### What earns confidence?
+**4. Extract facts with their evidence**
 
-| Evidence situation | Intended handling |
+For each important finding, retain the source URL, supporting excerpt and available dates. Preserve distinctions such as speaker, participant, organizer or simply being mentioned.
+
+**5. Compare records before connecting them**
+
+Use explicit cross-links and corroborating details about projects, organizations and activities. A shared name alone is insufficient. Copies of the same biography should not count as independent confirmation.
+
+**6. Explain confidence and uncertainty**
+
+Assess each association and claim separately. Show what supports it, what conflicts with it and what is missing.
+
+| Result | Meaning |
 |---|---|
-| A confirmed website explicitly links an account, with consistent context | Strong support for the association; retain the linking evidence |
-| Several independent details agree, but no direct link exists | Candidate association requiring further corroboration |
-| Only the display name matches | Insufficient evidence to merge |
-| Material details conflict | Flag the conflict and reassess the association |
-| Sources are missing or inaccessible | Report the coverage gap |
+| 🟢 **Supported** | Available evidence supports the specific association or claim |
+| 🟡 **Uncertain** | Some clues agree, but evidence is insufficient |
+| 🟠 **Conflicting** | Sources disagree and need further review |
+| ⚪ **Not associated** | The evidence does not justify connecting the record to the subject |
 
-Confidence will be an **explained assessment of evidence strength**, not an unvalidated probability. Confidence in an account association does not automatically verify every claim on that account.
+These are evidence assessments, not guarantees or unvalidated accuracy percentages. Missing results mean “not found within the searched sources,” not “does not exist.”
 
-### Across time, not just across platforms
+**7. Present the public history**
 
-Temporal Nexus will distinguish:
+Produce a structured summary and a timeline or relationship graph. Each activity or connection should open its supporting evidence, with uncertain records clearly separated.
 
-- **Activity date:** when an event, role or contribution occurred.
-- **Publication date:** when the source was published, if known.
-- **Retrieval date:** when the system accessed it.
+### What an evidence-backed finding looks like
 
-A previous employer remains a historical affiliation. Unknown dates remain unknown. Each timeline entry or relationship should lead back to its evidence.
+*Illustrative example only.*
+
+| Field | Example |
+|---|---|
+| **Finding** | A GitHub account is associated with the supplied personal website |
+| **Evidence** | The website explicitly links that account |
+| **Corroboration** | Both reference the same project |
+| **Assessment** | Supported association |
+| **Limit** | This does not automatically verify every claim made by the account |
 
 ---
 
-## Demo Plan
+## Across Platforms—and Across Time
 
-### Show both a connection and a reason to stop
+A person’s public history changes. Temporal Nexus should preserve those changes.
 
-Organizers will not provide a dataset. We will prepare our own consented test case and clearly label any controlled or synthetic sources.
-
-The proposed MVP is one complete workflow demonstrating:
-
-| Test case | Expected behavior |
+| Date type | Meaning |
 |---|---|
-| The same person uses different usernames | Associate records when evidence supports the connection |
-| An unrelated record shares the name | Keep it separate unless stronger evidence appears |
-| Sources describe different historical roles | Preserve the dates and distinguish change from contradiction |
-| Evidence is incomplete or conflicting | Show uncertainty without inventing missing information |
-| A finding appears in the timeline | Make its supporting source inspectable |
+| **Activity date** | When the documented event, role or contribution occurred |
+| **Publication date** | When the source was published, if available |
+| **Retrieval date** | When the system accessed the source |
 
-Evaluation will compare results against a separate expected-results checklist: correct associations, false associations, missed expected records, unresolved cases and evidence coverage.
+A previous employer remains a historical affiliation. A publication date is not automatically an event date. Unknown dates remain unknown.
 
-**Live public discovery and controlled-source testing will be reported separately.** A controlled demonstration can test correlation, but does not establish open-web discovery performance.
+This makes the timeline a record of supported activities rather than a list of everything treated as current.
 
 ---
 
-## Scope and Checkpoint Status
+## Demo and Evaluation Plan
 
-This is a **software-only prototype proposal** using authorized public information. Private-account access, leaked data and access-control bypasses are outside scope.
+### Demonstrate correct connections and sensible uncertainty
 
-| Item | Current status |
+The first MVP will demonstrate one complete input-to-evidence workflow using a small, authorized set of sources.
+
+| Test | Expected behavior |
 |---|---|
-| Project name and Checkpoint 01 presentation format | Finalized |
-| Problem understanding and evidence-focused direction | Defined |
-| Architecture and matching approach | Proposed |
-| Image-method acceptance and approved source coverage | Pending clarification |
-| Test identity and demo source preparation | Pending |
-| Implementation, performance and evaluation results | Not yet demonstrated |
+| Different usernames with corroborating evidence | Connect the relevant records and explain why |
+| An unrelated same-name record | Avoid an unsupported merge |
+| Useful text visible in the image | Show how the extracted clue changes discovery |
+| An image without readable contextual clues | Report that no useful image clue was extracted |
+| Historical roles or conflicting information | Preserve dates and flag genuine disagreement |
+| A timeline entry | Make its supporting source inspectable |
+
+We will compare results with a separate expected-results checklist, tracking correct associations, false associations, missed expected records, unresolved cases and evidence coverage.
+
+Live public discovery and controlled or synthetic test sources will be clearly distinguished. Controlled testing demonstrates behavior within that dataset; it does not establish unrestricted web-search performance.
+
+---
+
+## Checkpoint Progress
+
+| Area | Status |
+|---|---|
+| Project name and purpose | Finalized |
+| Problem analysis and Checkpoint 01 README | Completed |
+| Architecture and Image Intelligence approach | Proposed |
+| Organizer acceptance of the contextual image scope | Pending confirmation |
+| Approved source selection and test-data preparation | Pending |
+| Implementation and measured results | Not yet demonstrated |
+
+**Next milestone:** Confirm the remaining scope questions, prepare authorized test records, and build one complete discovery-and-verification workflow before expanding coverage.
+
+<details>
+<summary><strong>Scope, limitations and setup</strong></summary>
+
+### Scope and limitations
+
+- Software-only prototype using authorized public information.
+- No private-account access, leaked data or access-control bypasses.
+- The proposed image module focuses on OCR and contextual clues. Plain headshots may provide no usable clues; acceptance against the brief’s image-identification requirement remains to be confirmed.
+- Blurred badges, partial banners and ambiguous branding may produce uncertain or unusable results.
+- Inaccessible or missing sources will be reported as coverage gaps.
+- Sensitive personal attributes will not be inferred from appearance.
 
 ### Setup
 
-No runnable application or installation procedure is available at this checkpoint. Prerequisites, configuration examples and tested launch instructions will be added with the first working implementation.
+A runnable application is not available at this checkpoint. Tested prerequisites, configuration examples and launch instructions will be added with the first working implementation.
+
+</details>
 
 ---
 
-**Temporal Nexus makes the connection inspectable: what was found, why it belongs, when it applied, and what remains uncertain.**
+<div align="center">
+
+**What was found. Why it connects. When it applied. What remains uncertain.**
+
+*Temporal Nexus · Connect the traces. Resolve the identity.*
+
+</div>
