@@ -1,0 +1,1 @@
+"""Retrieve permitted source content."""

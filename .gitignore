@@ -1,0 +1,57 @@
+# Real environment files (keep the example tracked)
+.env
+.env.*
+!.env.example
+
+# Python caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Local databases and SQLite sidecars
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+
+# Local data (keep the directory placeholder)
+/data/*
+!/data/.gitkeep
+
+# Temporary uploads and raw images (tests generate images in memory)
+uploads/
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webp
+*.bmp
+*.tif
+*.tiff
+*.heic
+
+# Local credentials and private keys
+.envrc
+.credentials/
+credentials*.json
+secrets*.json
+service-account*.json
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Local logs and test caches
+*.log
+.coverage
+htmlcov/
