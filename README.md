@@ -1,718 +1,698 @@
 <div align="center">
 
-# TEMPORAL NEXUS
+# ⚡ TEMPORAL NEXUS
 
-### Connect the traces. Resolve the identity.
+### **Connect the traces. Resolve the identity.**
 
-**An evidence-first public digital identity intelligence system**
+**Evidence-first Public Digital Identity Intelligence**
 
-**NEURAX Hackathon 3.0 · AI in Cybersecurity**
+<br>
+
+![AI Cybersecurity](https://img.shields.io/badge/AI-CYBERSECURITY-00D4FF?style=for-the-badge)
+![FastAPI](https://img.shields.io/badge/FastAPI-BACKEND-009688?style=for-the-badge\&logo=fastapi\&logoColor=white)
+![Python](https://img.shields.io/badge/Python-ENGINE-3776AB?style=for-the-badge\&logo=python\&logoColor=white)
+![OCR](https://img.shields.io/badge/OCR-IMAGE_INTELLIGENCE-8B5CF6?style=for-the-badge)
+![Status](https://img.shields.io/badge/STATUS-PROTOTYPE_SUCCESS-22C55E?style=for-the-badge)
+
+<br>
+
+### One person.
+
+### Many digital traces.
+
+### One evidence-backed identity story.
 
 ---
 
-**Image Intelligence · Public-Source Discovery · Evidence Correlation · Temporal Reasoning · Relationship Mapping**
+**NEURAX Hackathon 3.0 · AI in Cybersecurity**
 
 </div>
 
 ---
 
-## The Idea
+# 🔷 What is Temporal Nexus?
 
-A person's public digital identity rarely exists in one place.
+Imagine starting with only:
 
-A developer may use one username on GitHub, appear under a full name on an event page, be mentioned on an organization website, maintain a personal portfolio, and have older public records describing previous roles or projects.
+> 🖼️ **A photograph**
+> 👤 **A name or username**
+> 🏢 **Maybe an organization**
 
-Finding those pages individually is relatively easy.
+Across the public internet, that same person may appear in completely different forms:
 
-The difficult question is:
+| 🌐 Source             | Possible Trace            |
+| --------------------- | ------------------------- |
+| GitHub                | Username + projects       |
+| Event Page            | Name + participation      |
+| Organization Site     | Name + role               |
+| Portfolio             | Skills + projects         |
+| Professional Profile  | Employment history        |
+| Publication           | Name + research           |
+| Public Social Profile | Username + identity clues |
 
-> **Do these scattered digital traces actually belong to the same person — and what evidence proves the connection?**
+The problem is not simply finding these pages.
 
-**Temporal Nexus** is built around that problem.
+The real problem is:
 
-Instead of treating search results, matching names, or OCR detections as proof, Temporal Nexus creates a traceable investigation pipeline that discovers public information, extracts structured observations, compares evidence across sources, preserves conflicts and uncertainty, and produces an explainable identity-resolution report.
+<div align="center">
 
-The system is designed around one principle:
+## **How do we know they belong to the same person?**
 
-> **What was found. Why it connects. When it applied. What remains uncertain.**
+</div>
 
----
-
-# Why Temporal Nexus?
-
-Traditional searches return pages.
-
-Temporal Nexus attempts to answer a more difficult set of questions:
-
-* Which discovered profiles are actually relevant to the person under investigation?
-* Are two usernames connected by evidence or merely similar?
-* Does an event page genuinely associate the subject with that event?
-* Is an organization a current affiliation or only a historical one?
-* Does a discovered page describe the person, or is the person's name merely mentioned?
-* Do multiple sources independently support the same association?
-* Are there contradictions that should prevent an automatic identity merge?
-* Can every important conclusion be traced back to its supporting source?
-
-Temporal Nexus therefore treats **identity resolution as an evidence problem rather than a search problem**.
+Temporal Nexus converts scattered public information into an **explainable evidence graph** instead of blindly merging search results.
 
 ---
 
-# Core Philosophy
+# 🧬 The Nexus
 
-Temporal Nexus does **not** operate using:
+```mermaid
+flowchart LR
 
-> `Search result → Same name → Same person`
+    A["🖼️ Image"] --> B["🔎 Visual Clues"]
 
-Instead, the workflow is:
+    C["👤 Known Context"] --> D["🧠 Query Intelligence"]
 
-> `Input → Clues → Discovery → Source Evidence → Correlation → Temporal Analysis → Relationship Mapping → Explainable Report`
+    B --> D
 
-A clue helps locate evidence.
+    D --> E["🌐 Public Discovery"]
 
-Evidence supports or contradicts an association.
+    E --> F["📄 Source Analysis"]
 
-Only then can the system decide whether a digital trace should be connected to the identity being investigated.
+    F --> G["🔗 Evidence Correlation"]
+
+    G --> H["🕒 Temporal Reasoning"]
+
+    G --> I["🧠 ML Assist"]
+
+    G --> J["🕸️ Relationship Graph"]
+
+    H --> K["📊 Identity Report"]
+    I --> K
+    J --> K
+```
+
+<div align="center">
+
+### `INPUT → CLUES → DISCOVERY → EVIDENCE → CORRELATION → IDENTITY`
+
+</div>
 
 ---
 
-# What Temporal Nexus Does
+# 🚀 Investigation Workspace
 
-Given an **authorized reference image** and optional known information such as:
+Temporal Nexus is built as a **six-stage investigation pipeline**.
+
+<table>
+<tr>
+
+<td width="33%" valign="top">
+
+### ① 📥 CASE INPUT
+
+Upload the authorized reference image and provide whatever information is already known.
+
+**Accepts**
 
 * Name
 * Username
 * Organization
-* Role / designation
+* Role
 * Department
+* Reference image
 
-Temporal Nexus can:
+</td>
 
-1. Validate the submitted image and consent.
-2. Extract visible text from the image locally.
-3. Allow a human reviewer to correct and classify OCR results.
-4. Convert approved clues into explainable search queries.
-5. Discover candidate public sources.
-6. Safely inspect selected public pages.
-7. Extract subject-focused observations and their evidence.
-8. Normalize discovered public-profile records.
-9. Compare source evidence against the supplied identity.
-10. Detect supporting, missing and conflicting signals.
-11. Perform conservative temporal reasoning.
-12. Consolidate connected public profiles.
-13. Apply an ML-assisted association score as secondary evidence.
-14. Build an evidence-backed relationship graph.
-15. Produce a structured Identity Resolution Report.
+<td width="33%" valign="top">
+
+### ② 👁️ IMAGE INTELLIGENCE
+
+The image is analyzed locally for useful contextual information.
+
+**Extracts**
+
+* Event names
+* Organization names
+* Badge text
+* Usernames
+* Visible labels
+* Scene text
+
+</td>
+
+<td width="33%" valign="top">
+
+### ③ 🧠 QUERY INTELLIGENCE
+
+Approved clues are converted into explainable public-search queries.
+
+Every query preserves:
+
+**WHAT triggered it**
+and
+**WHY it was generated**
+
+</td>
+
+</tr>
+
+<tr>
+
+<td width="33%" valign="top">
+
+### ④ 🌐 DISCOVERY
+
+Temporal Nexus searches for possible public traces.
+
+Results remain:
+
+### ⚠️ UNVERIFIED
+
+until supporting evidence is found.
+
+</td>
+
+<td width="33%" valign="top">
+
+### ⑤ 📄 SOURCE INTELLIGENCE
+
+Selected public pages are inspected for subject-specific evidence.
+
+The system extracts structured observations instead of blindly trusting snippets.
+
+</td>
+
+<td width="33%" valign="top">
+
+### ⑥ 🔗 CORRELATION
+
+Evidence from multiple sources is compared.
+
+The final result includes:
+
+* supported claims
+* conflicts
+* missing evidence
+* timelines
+* profiles
+* relationships
+
+</td>
+
+</tr>
+</table>
 
 ---
 
-# End-to-End Investigation Pipeline
+# 👁️ Image Intelligence
+
+A photograph can contain much more information than a face.
+
+Temporal Nexus looks for **context surrounding the subject**.
 
 ```mermaid
 flowchart LR
-    A["Authorized Image + Context"] --> B["Input Validation"]
-    B --> C["Local Image Intelligence"]
-    C --> D["Human Clue Review"]
-    D --> E["Explainable Query Plan"]
-    E --> F["Public-Source Discovery"]
-    F --> G["Selected Source Analysis"]
-    G --> H["Evidence Extraction"]
-    H --> I["Identity Correlation"]
-    I --> J["Temporal Reasoning"]
-    I --> K["ML Assist"]
-    I --> L["Profile Consolidation"]
-    J --> M["Relationship Graph"]
-    K --> M
-    L --> M
-    M --> N["Identity Resolution Report"]
 
-    I --> O["Conflicts / Missing Evidence"]
-    O --> N
+    A["Original Image"]
+
+    A --> B["Full Image OCR"]
+    A --> C["Enhanced OCR"]
+    A --> D["Regional OCR"]
+
+    B --> E["Candidate Clues"]
+    C --> E
+    D --> E
+
+    E --> F["👤 Human Review"]
+
+    F --> G["Selected Evidence Clues"]
 ```
 
----
+### Example
 
-# Six Investigation Stages
+A photograph might contain:
 
-The interface presents the investigation as six connected stages.
+> **NEURAX HACKATHON 3.0**
+> **CMR Technical Campus**
 
-## 01 · Case Input
+These become potential investigation clues.
 
-The investigation begins with only the information that is legitimately known.
+But Temporal Nexus does **not** make the mistake of assuming:
 
-Users provide:
+> "The text appeared near the person, therefore it describes the person."
 
-* a reference image;
-* optional name;
-* optional username;
-* optional organization;
-* optional role;
-* optional department;
-* explicit authorization confirmation.
-
-Supported image constraints include:
-
-* JPEG / PNG;
-* maximum size of approximately **5 MiB**;
-* maximum image resolution of **20 megapixels**.
-
-Input supplied directly by the user remains separate from information later extracted from the image or discovered on public sources.
-
-This separation is important because supplied context should not silently become "evidence" for itself.
+The clue is only used to **guide discovery**.
 
 ---
 
-## 02 · Image Intelligence
+# 🎛️ Human-in-the-Loop Intelligence
 
-Temporal Nexus performs **local scene-text OCR** using Tesseract.
+OCR is useful.
 
-Unlike a single document-style OCR pass, the image intelligence module performs multiple bounded passes across:
+OCR is also imperfect.
 
-* the complete image;
-* an enhanced grayscale/autocontrast version;
-* overlapping image regions.
-
-This improves the chances of extracting useful contextual text from photographs containing:
-
-* banners;
-* conference boards;
-* badges;
-* organization names;
-* event names;
-* visible usernames;
-* signage.
-
-### Human-in-the-Loop Review
-
-OCR output is never automatically accepted as identity evidence.
+That is why Temporal Nexus places a human review stage between extraction and investigation.
 
 The reviewer can:
 
-* inspect extracted lines;
-* see OCR confidence;
-* correct incorrectly recognized text;
-* classify a clue;
-* select or reject individual clues;
-* add clearly visible text missed by OCR.
+✅ correct OCR mistakes
+✅ change clue categories
+✅ remove irrelevant text
+✅ select useful clues
+✅ add clearly visible missed clues
+✅ preserve the original OCR evidence
 
-The **original OCR observation is preserved** even when a reviewer corrects it.
+Example:
 
-Reviewer-added information is also explicitly marked so it cannot be misrepresented as OCR output.
+```text
+OCR detected:
+Al3x D3mo
 
-### Important distinction
+Reviewer correction:
+Alex Demo
+```
 
-**OCR confidence ≠ identity confidence.**
+Both values remain distinguishable.
 
-Reading text successfully from an image does not prove that the text describes the person shown in the image.
+The correction does not silently overwrite the original observation.
+
+---
+
+# 🛰️ Explainable Discovery
+
+Temporal Nexus does not hide its search logic.
+
+Every generated query can explain:
+
+```text
+QUERY
+"Alex Kumar" "NEURAX Hackathon"
+
+WHY?
+Name supplied by investigator
++
+Event extracted from reviewed image clue
+```
+
+This creates an investigation that can be inspected instead of a black-box result.
+
+---
+
+# 🌐 Candidate Discovery
+
+Discovery can locate public traces such as:
+
+<div align="center">
+
+![GitHub](https://img.shields.io/badge/GitHub-PROFILES-181717?style=flat-square\&logo=github)
+![LinkedIn](https://img.shields.io/badge/LinkedIn-PUBLIC_RECORDS-0A66C2?style=flat-square\&logo=linkedin)
+![Web](https://img.shields.io/badge/Web-PUBLIC_PAGES-00B8D9?style=flat-square)
+![Events](https://img.shields.io/badge/Events-PARTICIPATION-8B5CF6?style=flat-square)
+![Projects](https://img.shields.io/badge/Projects-PUBLIC_WORK-F59E0B?style=flat-square)
+![Publications](https://img.shields.io/badge/Publications-RESEARCH-EC4899?style=flat-square)
+
+</div>
+
+But discovery is deliberately separated from verification.
+
+<div align="center">
+
+### 🔴 FOUND ≠ VERIFIED
+
+</div>
+
+A candidate result becomes useful only after its contents support the identity association.
+
+---
+
+# 🧩 Source Intelligence
+
+Temporal Nexus examines selected public sources and turns webpage content into structured observations.
+
+Instead of storing an entire page as one giant block of text:
+
+```text
+PAGE
+↓
+OBSERVATIONS
+```
 
 For example:
 
-> Detecting the words **"NEURAX Hackathon"** on a banner can provide a useful search clue.
+| Evidence Type   | Observation          |
+| --------------- | -------------------- |
+| 👤 Name         | Alex Kumar           |
+| 🪪 Username     | alexk_dev            |
+| 🏢 Organization | CMR Technical Campus |
+| 💼 Role         | Developer            |
+| 🎯 Event        | NEURAX Hackathon     |
+| 💻 Project      | Temporal Nexus       |
+| 📍 Location     | Hyderabad            |
+| 🗓️ Date        | September 2026       |
 
-It does **not** independently prove that the person attended, organized or participated in that event.
-
----
-
-# 03 · Explainable Query Intelligence
-
-Selected clues and supplied context are transformed into a bounded search plan.
-
-Rather than hiding search construction inside a black box, Temporal Nexus exposes:
-
-* the generated query;
-* the clue or supplied field that caused it;
-* its intended search scope;
-* platform-specific variations where appropriate.
-
-This lets the reviewer understand:
-
-> **Why is the system searching for this?**
-
-Search planning is deliberately separated from actual discovery.
-
-Preparing a query does not make an external request.
+Every important observation keeps a reference to its source.
 
 ---
 
-# 04 · Public-Source Discovery
+# 🔗 Identity Correlation Engine
 
-Temporal Nexus uses the **Tavily Search API** to discover candidate pages from the public web.
+This is the core of Temporal Nexus.
 
-Potential public traces can include:
+Instead of asking:
 
-* GitHub profiles;
-* LinkedIn pages;
-* personal websites;
-* organization pages;
-* event records;
-* public YouTube pages;
-* X / Twitter pages;
-* Instagram pages;
-* publication or academic references;
-* project pages;
-* other publicly indexed sources.
+> **"Do the names look similar?"**
 
-Search results remain explicitly marked as:
+Temporal Nexus asks:
 
-> **UNVERIFIED CANDIDATES**
+> **"How much independent evidence connects these traces?"**
 
-A search result appearing relevant is not sufficient to associate it with the subject.
+```mermaid
+flowchart TD
 
-The reference image itself is **not transmitted to Tavily**.
+    A["Candidate Identity"]
 
-Only prepared textual search queries are used for discovery.
+    B["Name Match"]
+    C["Username Match"]
+    D["Organization Match"]
+    E["Role Match"]
+    F["Event Match"]
+    G["Cross-linked Profiles"]
+    H["Temporal Consistency"]
+    I["Conflicting Evidence"]
 
-URLs are normalized and tracking parameters are removed before candidate consolidation where possible.
+    B --> A
+    C --> A
+    D --> A
+    E --> A
+    F --> A
+    G --> A
+    H --> A
+    I --> A
 
----
-
-# 05 · Source Intelligence
-
-Discovery tells us **where evidence might exist**.
-
-Source Intelligence determines **what the page actually supports**.
-
-The reviewer can select a small number of candidate pages for deeper analysis.
-
-Temporal Nexus reads only accessible public HTTP/HTTPS content.
-
-It does not attempt to bypass:
-
-* authentication;
-* private accounts;
-* access controls;
-* restricted pages;
-* network protections.
-
-### Safe Source Reader
-
-The source reader includes controls designed to prevent unsafe server-side retrieval.
-
-It rejects destinations such as:
-
-* localhost;
-* private network addresses;
-* link-local addresses;
-* reserved/internal addresses.
-
-Requests are bounded by:
-
-* network timeout;
-* response-size limits;
-* redirect limits;
-* supported text/HTML content types.
-
-Restricted or inaccessible pages are recorded as unavailable rather than bypassed.
+    A --> J["Evidence Decision"]
+```
 
 ---
 
-# Evidence Extraction
+# 🚦 Evidence States
 
-For each accessible source, Temporal Nexus extracts structured observations conservatively.
+Temporal Nexus avoids pretending that every result can be reduced to one magical percentage.
 
-Sources examined can include:
+Instead, evidence receives meaningful states.
 
-* visible page text;
-* page title;
-* metadata;
-* JSON-LD structured data;
-* supported profile markup;
-* explicit labels;
-* candidate profile URLs;
-* explicit public-profile cross-links.
+<table>
+<tr>
+<td>
 
-Possible observations include:
+### 🟢 SUPPORTED
 
-| Observation  | Example                 |
-| ------------ | ----------------------- |
-| Name         | Alex Kumar              |
-| Username     | alexk_dev               |
-| Organization | Example Technologies    |
-| Role         | Software Engineer       |
-| Department   | Computer Science        |
-| Event        | Security Hackathon 2026 |
-| Project      | SecureGate              |
-| Publication  | Research paper title    |
-| Education    | Institution             |
-| Location     | Hyderabad               |
-| Date         | 2026                    |
-| Profile link | Public GitHub profile   |
+Evidence actively supports the association.
 
-Each important observation keeps its supporting evidence.
+</td>
 
-Temporal Nexus also separates information about the **subject of the page** from unrelated metadata such as:
+<td>
 
-* article authors;
-* website publishers;
-* site-owned social links.
+### 🟡 PARTIAL
 
-This reduces the risk of incorrectly assigning a publisher's or author's identity to the subject being investigated.
+Evidence exists but is incomplete.
 
----
+</td>
+</tr>
 
-# 06 · Identity Correlation
+<tr>
+<td>
 
-Correlation is the central intelligence layer of Temporal Nexus.
+### 🔴 CONFLICTING
 
-The system compares the supplied identity and approved image clues against observations extracted from public sources.
+Evidence directly disagrees with the supplied identity.
 
-It evaluates evidence for fields such as:
+</td>
 
-* name;
-* username;
-* organization;
-* role;
-* department;
-* event.
+<td>
 
-A shared name by itself is intentionally weak evidence.
+### ⚪ MISSING
 
-Usernames are compared conservatively, and identity fields are not freely merged simply because similar text appears on multiple pages.
+The expected evidence could not be found.
 
-The system records:
+</td>
+</tr>
+</table>
 
-* matching signals;
-* missing signals;
-* conflicting signals;
-* source evidence;
-* cross-source corroboration;
-* unresolved observations.
+This distinction matters.
+
+**Missing evidence is not the same as contradictory evidence.**
 
 ---
 
-# Evidence States
+# 🧠 ML-Assisted Correlation
 
-Temporal Nexus avoids presenting identity resolution as a misleading single accuracy percentage.
+Temporal Nexus contains a lightweight **custom logistic-regression correlation layer**.
 
-Instead, individual claims can be represented using evidence states such as:
+It evaluates signals including:
 
-| State                   | Meaning                                                |
-| ----------------------- | ------------------------------------------------------ |
-| **Supported**           | Available evidence supports the association            |
-| **Partially Supported** | Some useful evidence exists, but support is incomplete |
-| **Conflicting**         | Available evidence directly disagrees                  |
-| **Missing**             | Evidence for the supplied field was not found          |
-| **Not Assessed**        | Available sources do not support a reliable assessment |
+```text
+Name similarity
+Username agreement
+Organization agreement
+Role agreement
+Department agreement
+Profile cross-links
+Evidence density
+Missing evidence
+Temporal consistency
+Explicit conflicts
+```
 
-A result such as:
+The model produces an **association assistance score**.
 
-> **4 / 5 supplied fields supported**
+But:
 
-represents **evidence coverage**, not a 80% probability that the identity is correct.
+<div align="center">
 
----
+### ⚠️ ML IS NOT THE FINAL AUTHORITY
 
-# Deterministic Correlation + ML Assist
+</div>
 
-Temporal Nexus intentionally combines two different reasoning layers.
+The deterministic evidence layer remains authoritative.
 
-## Deterministic Evidence Layer
-
-The deterministic system remains authoritative.
-
-It uses explicit source observations, supplied fields, reviewed clues, public-profile links and conflicts to determine the evidence state.
-
-This layer is designed to remain understandable and auditable.
-
-## Custom ML-Assisted Correlation
-
-Temporal Nexus also contains a lightweight custom logistic-regression baseline.
-
-The model is trained locally on controlled synthetic **same-person / different-person** feature pairs.
-
-Features include signals such as:
-
-* name match;
-* username match;
-* organization match;
-* role match;
-* department match;
-* explicit profile cross-linking;
-* direct page availability;
-* evidence support density;
-* missing evidence density;
-* temporal consistency;
-* explicit conflict presence.
-
-The model produces an **association score** and strength band.
-
-### Important
-
-The ML score is:
-
-* **not a calibrated identity probability**;
-* not independent proof;
-* not allowed to override deterministic conflicts.
-
-If an explicit contradiction exists, the system deliberately limits the ML score rather than allowing the model to "explain away" contradictory evidence.
-
-The ML layer therefore acts as:
-
-> **secondary decision support, not the final authority.**
+If direct evidence contradicts an identity association, the ML system is not allowed to simply override that contradiction.
 
 ---
 
-# Temporal Reasoning
+# ⏳ Temporal Intelligence
 
-Digital identity changes over time.
+Identity changes over time.
 
-Someone may:
+A person may:
 
-* leave an organization;
-* change roles;
-* participate in an event years earlier;
-* work on different projects at different points;
-* have old public profiles that remain indexed.
+```text
+2023 → Student
 
-Temporal Nexus therefore distinguishes between:
+2024 → Hackathon Participant
 
-* current evidence;
-* historical evidence;
-* explicit dates;
-* date ranges;
-* undated observations.
+2025 → Intern
 
-The temporal reasoning engine uses only dates or temporal labels that actually appear in evidence.
+2026 → Developer
+```
 
-It does **not invent missing employment or participation histories**.
+An old affiliation should not automatically be treated as false.
 
-For example:
+Temporal Nexus therefore separates:
 
-> A historical organization different from the current supplied organization is preserved as historical context.
+🟣 **Historical Evidence**
 
-It is not automatically considered a contradiction.
+from
 
-However:
+🔵 **Current Evidence**
 
-> A source explicitly claiming a different **current** organization may be flagged for review as a temporal conflict.
+and
+
+🔴 **Temporal Conflict**
 
 ---
 
-# Evidence-Backed Timeline
+# 🕸️ Relationship Graph
 
-When reliable temporal observations exist, Temporal Nexus can organize them chronologically.
-
-Potential timeline elements include:
-
-* roles;
-* organizations;
-* events;
-* projects;
-* publications;
-* education;
-* locations.
-
-A timeline entry is only created when sufficient temporal information exists.
-
-An undated mention is not silently converted into a historical event.
-
----
-
-# Relationship Graph
-
-Temporal Nexus builds a compact relationship graph around the resolved identity.
-
-Possible node types include:
-
-* Identity
-* Public Profile
-* Organization
-* Role
-* Department
-* Project
-* Event
-* Publication
-* Education
-* Location
-
-Possible relationships include:
-
-* `public trace`
-* `affiliated with`
-* `role`
-* `department`
-* `project`
-* `event`
-* `publication`
-
-Each relationship can carry:
-
-* evidence state;
-* supporting source URLs;
-* evidence count.
+The final identity can be viewed as a network of evidence-backed relationships.
 
 ```mermaid
 graph TD
-    A["Identity Under Review"]
 
-    A -->|"public trace"| B["GitHub Profile"]
-    A -->|"public trace"| C["Professional Profile"]
-    A -->|"affiliated with"| D["Organization"]
+    A["👤 Identity"]
 
-    B -->|"project"| E["Project"]
-    C -->|"role"| F["Role"]
-    C -->|"event"| G["Event"]
+    A --> B["💻 GitHub"]
+    A --> C["🌐 Portfolio"]
+    A --> D["🏢 Organization"]
+    A --> E["🎯 Event"]
 
-    E --> H["Supporting Evidence"]
-    F --> H
-    G --> H
+    B --> F["📦 Project"]
+
+    D --> G["💼 Role"]
+
+    E --> H["🗓️ Participation"]
+
+    F --> I["📄 Evidence"]
+    G --> I
+    H --> I
 ```
 
-The graph is therefore not merely decorative.
+Possible node types include:
 
-It represents **evidence-backed relationships** extracted from the investigation.
-
----
-
-# Identity Resolution Report
-
-The final stage converts technical observations into a reviewer-friendly investigation report.
-
-The report is organized around the **identity decision**, not around a dump of search results.
-
-## 1. Most Supported Identity
-
-Shows the canonical supplied identity and the strongest evidence-backed association state.
-
-## 2. Connected Public Footprint
-
-Shows normalized public profiles that have sufficient evidence to be connected or partially connected.
-
-Repositories, posts, articles and subpages remain **supporting evidence**, rather than being presented as separate identities.
-
-## 3. Temporal Reasoning
-
-Shows dated, historical and current observations without manufacturing missing history.
-
-## 4. Relationship Graph
-
-Shows evidence-backed connections between the identity, profiles, organizations, roles, projects, events and other entities.
-
-## 5. Evidence
-
-Allows important findings to be traced back to exact source material.
-
-## 6. Conflicts & Uncertainty
-
-Keeps:
-
-* contradictory information;
-* inaccessible sources;
-* missing evidence;
-* unresolved candidates
-
-separate from the supported public footprint.
-
-The report intentionally preserves uncertainty instead of hiding it.
+`Identity` · `Profile` · `Organization` · `Role` · `Project` · `Event` · `Publication` · `Education` · `Location`
 
 ---
 
-# System Architecture
+# 📊 Identity Resolution Report
+
+The final output is not merely a list of URLs.
+
+It becomes an investigation report containing:
+
+<table>
+<tr>
+
+<td width="50%">
+
+### 👤 Most Supported Identity
+
+Canonical identity being investigated.
+
+</td>
+
+<td width="50%">
+
+### 🌐 Connected Public Footprint
+
+Profiles and pages with sufficient supporting evidence.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+### 🕒 Timeline
+
+Historical and current observations.
+
+</td>
+
+<td>
+
+### 🕸️ Relationship Graph
+
+Evidence-backed identity connections.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+### 📚 Evidence
+
+Traceable supporting observations.
+
+</td>
+
+<td>
+
+### ⚠️ Conflicts
+
+Contradictory or unresolved information.
+
+</td>
+
+</tr>
+
+</table>
+
+---
+
+# 🏗️ Architecture
 
 ```mermaid
 flowchart TB
 
-    subgraph UI["Investigation Workspace"]
-        FE["HTML · CSS · JavaScript"]
-    end
+    UI["🖥️ Investigation Workspace"]
 
-    subgraph API["FastAPI Application"]
-        IV["Input Validation"]
-        OCR["Image Intelligence"]
-        QB["Query Builder"]
-        DS["Discovery Service"]
-        SR["Safe Source Reader"]
-        EX["Evidence Extraction"]
-        CO["Deterministic Correlation"]
-        PC["Profile Consolidation"]
-        TR["Temporal Reasoning"]
-        ML["ML Correlation Assist"]
-        RG["Relationship Graph"]
-        IR["Identity Report"]
-    end
+    UI --> API["⚡ FastAPI"]
 
-    subgraph EXT["External / Local Services"]
-        TS["Local Tesseract OCR"]
-        TV["Tavily Search API"]
-        WEB["Approved Public Web Sources"]
-    end
+    API --> INPUT["📥 Input Validation"]
+    API --> OCR["👁️ Image Intelligence"]
+    API --> QUERY["🧠 Query Builder"]
+    API --> DISCOVERY["🌐 Discovery"]
+    API --> READER["📄 Safe Source Reader"]
+    API --> EXTRACTION["🧩 Evidence Extraction"]
+    API --> CORRELATION["🔗 Correlation"]
+    API --> TEMPORAL["⏳ Temporal Reasoning"]
+    API --> ML["🤖 ML Assist"]
+    API --> GRAPH["🕸️ Relationship Graph"]
+    API --> REPORT["📊 Identity Report"]
 
-    FE --> IV
-    IV --> OCR
-    OCR --> TS
+    OCR --> TESS["Tesseract OCR"]
 
-    FE --> QB
-    QB --> DS
-    DS --> TV
+    DISCOVERY --> SEARCH["Public Search Provider"]
 
-    DS --> SR
-    SR --> WEB
-    SR --> EX
+    READER --> WEB["Approved Public Web Sources"]
 
-    EX --> CO
-    CO --> PC
-    CO --> TR
-    CO --> ML
+    EXTRACTION --> CORRELATION
 
-    PC --> RG
-    TR --> RG
-    ML --> IR
-    RG --> IR
+    CORRELATION --> TEMPORAL
+    CORRELATION --> ML
+    CORRELATION --> GRAPH
 
-    IR --> FE
+    TEMPORAL --> REPORT
+    ML --> REPORT
+    GRAPH --> REPORT
+
+    REPORT --> UI
 ```
 
 ---
 
-# Technology Stack
+# 🛠️ Technology Core
 
-| Layer             | Technology                                                 |
-| ----------------- | ---------------------------------------------------------- |
-| Backend           | Python                                                     |
-| API Framework     | FastAPI                                                    |
-| ASGI Server       | Uvicorn                                                    |
-| Frontend          | HTML5, CSS3, Vanilla JavaScript                            |
-| Image Processing  | Pillow                                                     |
-| OCR Integration   | pytesseract                                                |
-| OCR Engine        | Tesseract OCR                                              |
-| Public Discovery  | Tavily Search API                                          |
-| Structured Data   | Python models / JSON                                       |
-| ML Baseline       | Custom dependency-light logistic regression                |
-| Testing           | Automated backend/workflow tests + manual testing workflow |
-| API Documentation | FastAPI Swagger / OpenAPI                                  |
+<div align="center">
 
-The application deliberately keeps the stack lightweight enough for a hackathon prototype while maintaining clear separation between the investigation stages.
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge\&logo=python\&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge\&logo=fastapi\&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge\&logo=html5\&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge\&logo=css3\&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge\&logo=javascript\&logoColor=black)
+![Tesseract](https://img.shields.io/badge/Tesseract-OCR-8B5CF6?style=for-the-badge)
 
----
+</div>
 
-# API Overview
-
-FastAPI exposes the main investigation operations.
-
-| Method | Endpoint               | Purpose                                      |
-| ------ | ---------------------- | -------------------------------------------- |
-| `GET`  | `/`                    | Serve the investigation workspace            |
-| `GET`  | `/docs`                | Interactive FastAPI API documentation        |
-| `GET`  | `/api/health`          | Backend availability check                   |
-| `POST` | `/api/input`           | Validate image, consent and supplied context |
-| `POST` | `/api/image-clues`     | Perform local OCR and return image clues     |
-| `POST` | `/api/search-plan`     | Generate explainable search queries          |
-| `POST` | `/api/discover`        | Discover candidate public sources            |
-| `POST` | `/api/analyze-sources` | Read selected sources and extract evidence   |
-| `POST` | `/api/correlate`       | Produce identity-correlation results         |
+| Layer                | Technology                             |
+| -------------------- | -------------------------------------- |
+| ⚡ API                | FastAPI                                |
+| 🐍 Backend           | Python                                 |
+| 🖥️ Frontend         | HTML + CSS + JavaScript                |
+| 👁️ OCR              | Tesseract + pytesseract                |
+| 🖼️ Image Processing | Pillow                                 |
+| 🔎 Discovery         | Public search integration              |
+| 🤖 ML                | Custom lightweight logistic regression |
+| 🧪 Testing           | Automated + manual workflow testing    |
 
 ---
 
-# Project Structure
+# 📂 Project Structure
 
 ```text
-Temporal_Nexus/
+Temporal_Nexus
 │
-├── backend/
+├── ⚡ backend
 │   ├── main.py
 │   ├── models.py
 │   ├── database.py
 │   │
-│   └── services/
+│   └── services
 │       ├── input_validation.py
 │       ├── image_clues.py
 │       ├── indexed_clues.py
@@ -720,7 +700,6 @@ Temporal_Nexus/
 │       ├── discovery.py
 │       ├── source_reader.py
 │       ├── extraction.py
-│       ├── platforms.py
 │       ├── profiles.py
 │       ├── profile_records.py
 │       ├── profile_markup.py
@@ -731,50 +710,39 @@ Temporal_Nexus/
 │       ├── relationship_graph.py
 │       └── identity_report.py
 │
-├── frontend/
+├── 🎨 frontend
 │   ├── index.html
 │   ├── styles.css
 │   ├── app.js
 │   └── report.js
 │
-├── data/
-│
-├── tests/
+├── 🗃️ data
+├── 🧪 tests
 │
 ├── .env.example
-├── .gitignore
-├── MANUAL_TESTING.md
 ├── requirements.txt
+├── MANUAL_TESTING.md
 └── README.md
 ```
 
 ---
 
-# Running Temporal Nexus Locally
+# ⚙️ Run Temporal Nexus
 
-## Prerequisites
+<details>
 
-Install:
-
-* Python
-* pip
-* Tesseract OCR
-* Git
-
-A Tavily API key is required for live public-source discovery.
-
----
-
-## 1. Clone the Repository
+<summary><b>1️⃣ Clone the repository</b></summary>
 
 ```bash
 git clone https://github.com/sdheeraj4/Temporal_Nexus.git
 cd Temporal_Nexus
 ```
 
----
+</details>
 
-## 2. Create a Virtual Environment
+<details>
+
+<summary><b>2️⃣ Create the virtual environment</b></summary>
 
 ### Windows
 
@@ -790,90 +758,50 @@ python3 -m venv .venv
 source .venv/bin/activate
 ```
 
----
+</details>
 
-## 3. Install Python Dependencies
+<details>
+
+<summary><b>3️⃣ Install dependencies</b></summary>
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Core Python dependencies include:
+</details>
 
-```text
-fastapi
-uvicorn
-Pillow
-python-multipart
-pytesseract
-python-dotenv
-```
+<details>
 
----
+<summary><b>4️⃣ Configure environment</b></summary>
 
-## 4. Install Tesseract OCR
-
-Temporal Nexus performs OCR locally and therefore requires the actual **Tesseract executable**, not only the Python `pytesseract` package.
-
-Verify the installation:
-
-```bash
-tesseract --version
-```
-
-English language data must also be available.
-
-If Tesseract is not available globally on Windows, its executable can be configured through the environment variable:
-
-```text
-TESSERACT_CMD=
-```
-
----
-
-## 5. Configure Environment Variables
-
-Copy:
-
-```text
-.env.example
-```
-
-to:
+Create:
 
 ```text
 .env
 ```
 
-Configure:
+using:
 
-```env
-TAVILY_API_KEY=your_tavily_api_key_here
-
-# Optional if Tesseract is not available on PATH
-TESSERACT_CMD=
+```text
+.env.example
 ```
 
-### Security
+Never commit the real `.env`.
 
-Never commit the real `.env` file.
+</details>
 
-The repository intentionally tracks only `.env.example`.
+<details>
 
----
-
-## 6. Start the Application
-
-From the project root:
+<summary><b>5️⃣ Start the application</b></summary>
 
 ```bash
 uvicorn backend.main:app --reload
 ```
 
-Then open:
+Open:
 
 ```text
-http://127.0.0.1:8000/
+http://127.0.0.1:8000
 ```
 
 API documentation:
@@ -882,391 +810,293 @@ API documentation:
 http://127.0.0.1:8000/docs
 ```
 
-Health check:
+</details>
 
-```text
-http://127.0.0.1:8000/api/health
+---
+
+# 🎬 Demo Journey
+
+A Temporal Nexus demonstration follows one continuous investigation.
+
+```mermaid
+flowchart LR
+
+A["Upload Image"]
+--> B["Extract Clues"]
+--> C["Review Clues"]
+--> D["Build Queries"]
+--> E["Discover Sources"]
+--> F["Analyze Evidence"]
+--> G["Correlate Identity"]
+--> H["View Nexus Report"]
 ```
 
----
+### Demo sequence
 
-# Typical Investigation Flow
+**1. Upload**
+Reference image + known identity context.
 
-### Step 1
+**2. Inspect**
+Temporal Nexus extracts visual clues.
 
-Upload an authorized reference image.
+**3. Correct**
+Reviewer fixes or selects OCR clues.
 
-Optionally provide known identity context.
+**4. Discover**
+Explainable queries locate public candidates.
 
-### Step 2
+**5. Investigate**
+Selected sources are converted into structured evidence.
 
-Confirm authorization.
+**6. Resolve**
+Correlation compares independent identity signals.
 
-### Step 3
-
-Run Image Intelligence.
-
-### Step 4
-
-Review the OCR output.
-
-Correct, classify, select or manually add visible clues.
-
-### Step 5
-
-Generate the query plan.
-
-Review why each query was created.
-
-### Step 6
-
-Run public-source discovery.
-
-Candidate results remain unverified.
-
-### Step 7
-
-Select relevant candidate sources.
-
-### Step 8
-
-Analyze the selected public pages.
-
-### Step 9
-
-Inspect extracted observations and supporting excerpts.
-
-### Step 10
-
-Run identity correlation.
-
-### Step 11
-
-Review:
-
-* supported fields;
-* missing fields;
-* conflicts;
-* public profiles;
-* ML assist;
-* temporal reasoning;
-* timeline;
-* relationship graph;
-* evidence provenance.
+**7. Explain**
+Timeline, relationships, evidence and conflicts are shown together.
 
 ---
 
-# Security and Responsible-Use Boundaries
+# 🛡️ Security Boundaries
 
-Temporal Nexus is a cybersecurity research prototype built for an **authorized public-information workflow**.
+<div align="center">
 
-The application is intentionally designed with boundaries.
+### Temporal Nexus is built for
 
-## The system does
+### **AUTHORIZED PUBLIC-INFORMATION INVESTIGATION**
 
-* require authorization confirmation;
-* process OCR locally;
-* search publicly indexed information;
-* analyze accessible public pages;
-* preserve source provenance;
+</div>
+
+### ✅ Designed to
+
+* analyze authorized input;
+* inspect public information;
+* preserve evidence provenance;
 * expose uncertainty;
-* separate clues from proof;
-* retain conflicts instead of hiding them.
+* keep human review in the loop;
+* distinguish clues from proof;
+* detect conflicting information.
 
-## The system does not
+### ❌ Not designed to
 
 * access private accounts;
 * bypass authentication;
-* bypass paywalls or access controls;
-* use leaked databases;
 * exploit websites;
-* access internal/private network targets through the source reader;
-* infer sensitive attributes from someone's appearance;
-* treat a shared name as proof of identity;
-* treat an OCR result as proof;
-* treat an ML score as identity probability.
+* use leaked databases;
+* bypass access controls;
+* hide contradictory evidence;
+* treat matching names as identity proof.
 
 ---
 
-# Image and Facial Identification Scope
+# 👤 About Facial Identification
 
-The current Temporal Nexus build uses the supplied image primarily as a source of **contextual visual text**.
+Temporal Nexus currently uses the image primarily for:
 
-Examples include:
+> **contextual visual intelligence**
 
-* event banners;
-* organization names;
-* badge text;
-* visible usernames;
-* conference titles.
+such as:
 
-The current release does **not perform biometric facial identification** and does not claim that a face alone can establish ownership of a public account.
+* badges;
+* banners;
+* organizations;
+* events;
+* usernames;
+* visible contextual text.
 
-This is deliberate.
+The project does **not claim that a face alone proves ownership of an online account**.
 
-A face match by itself would still not prove that:
+Even a facial similarity result would still require independent supporting evidence.
 
-* a social-media account is controlled by the person;
-* an employment claim is genuine;
-* an event was attended;
-* a project was created by that individual.
+That principle is consistent throughout Temporal Nexus:
 
-Temporal Nexus therefore focuses on **evidence-backed public identity correlation**.
+<div align="center">
 
----
+## **A clue can start an investigation.
 
-# Privacy
+Only evidence can support the connection.**
 
-The investigation interface is designed so that submitted images and context are not treated as a permanent identity database.
-
-The project focuses on bounded analysis of an authorized case.
-
-Real credentials, uploaded images and private environment configuration should remain outside version control.
+</div>
 
 ---
 
-# Key Design Decisions
+# ✅ Build Status
 
-## 1. Evidence before confidence
+| Module                | Status |
+| --------------------- | :----: |
+| Input Validation      |   🟢   |
+| Consent Workflow      |   🟢   |
+| Image Intelligence    |   🟢   |
+| OCR Review            |   🟢   |
+| Query Intelligence    |   🟢   |
+| Public Discovery      |   🟢   |
+| Source Reader         |   🟢   |
+| Evidence Extraction   |   🟢   |
+| Profile Normalization |   🟢   |
+| Identity Correlation  |   🟢   |
+| ML Assist             |   🟢   |
+| Temporal Reasoning    |   🟢   |
+| Timeline Generation   |   🟢   |
+| Relationship Graph    |   🟢   |
+| Identity Report       |   🟢   |
+| Investigation UI      |   🟢   |
 
-The system explains the reason behind an association before displaying a confidence-oriented result.
+<div align="center">
 
-## 2. Human review before discovery
+![Build](https://img.shields.io/badge/CORE_PIPELINE-COMPLETE-22C55E?style=for-the-badge)
+![Hackathon](https://img.shields.io/badge/HACKATHON-DEMO_READY-00D4FF?style=for-the-badge)
 
-OCR is useful but imperfect. A reviewer can correct mistakes before those mistakes become search queries.
-
-## 3. Candidate ≠ identity
-
-Discovery results remain candidates until source evidence is analyzed.
-
-## 4. Missing ≠ conflicting
-
-A source failing to mention an organization is different from a source explicitly claiming another current organization.
-
-Temporal Nexus keeps those states separate.
-
-## 5. Historical ≠ incorrect
-
-Older affiliations are preserved as history rather than automatically treated as contradictions.
-
-## 6. ML assists; evidence decides
-
-The custom ML baseline can help rank associations, but explicit evidence and deterministic conflicts remain authoritative.
-
-## 7. Provenance is part of the result
-
-A finding without traceable evidence is intentionally weaker than a finding that can be opened and inspected.
+</div>
 
 ---
 
-# Current Implementation Status
+# 🔐 Evidence Philosophy
 
-| Component                            | Status                        |
-| ------------------------------------ | ----------------------------- |
-| Input and consent validation         | ✅ Implemented                 |
-| Image validation                     | ✅ Implemented                 |
-| Multi-pass local scene OCR           | ✅ Implemented                 |
-| OCR clue review                      | ✅ Implemented                 |
-| Reviewer corrections                 | ✅ Implemented                 |
-| Reviewer-added visual clues          | ✅ Implemented                 |
-| Explainable query generation         | ✅ Implemented                 |
-| Tavily public-source discovery       | ✅ Implemented                 |
-| Candidate normalization              | ✅ Implemented                 |
-| Safe public-source reader            | ✅ Implemented                 |
-| Subject-focused evidence extraction  | ✅ Implemented                 |
-| Public-profile normalization         | ✅ Implemented                 |
-| Deterministic identity correlation   | ✅ Implemented                 |
-| Conflict / missing evidence handling | ✅ Implemented                 |
-| Profile consolidation                | ✅ Implemented                 |
-| Synthetic-trained ML assist          | ✅ Implemented                 |
-| Temporal reasoning                   | ✅ Implemented                 |
-| Evidence-backed timeline             | ✅ Implemented                 |
-| Relationship graph                   | ✅ Implemented                 |
-| Identity Resolution Report           | ✅ Implemented                 |
-| Investigation workspace UI           | ✅ Implemented                 |
-| Facial biometric identification      | ❌ Not part of current release |
-| Private-account access               | ❌ Intentionally unsupported   |
+Temporal Nexus follows four simple rules:
+
+<table>
+
+<tr>
+
+<td align="center">
+
+### 🔍
+
+### FIND
+
+Discover possible traces.
+
+</td>
+
+<td align="center">
+
+### 📄
+
+### VERIFY
+
+Inspect what the source actually says.
+
+</td>
+
+<td align="center">
+
+### 🔗
+
+### CORRELATE
+
+Compare independent evidence.
+
+</td>
+
+<td align="center">
+
+### 🧾
+
+### EXPLAIN
+
+Show why the connection exists.
+
+</td>
+
+</tr>
+
+</table>
 
 ---
 
-# Testing
+# 💡 Why Temporal Nexus Is Different
 
-Temporal Nexus includes automated tests covering major backend and workflow behavior.
+Most tools answer:
 
-The project also contains:
+> **Where does this name appear?**
+
+Temporal Nexus attempts to answer:
+
+> **Which traces can actually be connected?**
+
+> **What evidence supports that connection?**
+
+> **When was that information true?**
+
+> **What contradicts it?**
+
+> **What still remains uncertain?**
+
+---
+
+# ⚠️ Current Limitations
+
+Temporal Nexus is a hackathon prototype and intentionally exposes its limitations.
+
+* Search engines cannot discover every public record.
+* OCR quality depends on image quality.
+* Some websites prevent automated reading.
+* JavaScript-heavy pages may expose limited content.
+* Public information itself may be incorrect.
+* Similar names can produce unrelated candidates.
+* Missing evidence does not prove something is false.
+* ML assistance is not a calibrated identity probability.
+* Public-profile correlation does not establish legal identity.
+
+---
+
+# 🔮 Beyond the Hackathon
+
+Temporal Nexus can evolve toward:
 
 ```text
-MANUAL_TESTING.md
+Richer entity extraction
+      ↓
+Stronger evidence-quality scoring
+      ↓
+Larger temporal graphs
+      ↓
+Investigation report export
+      ↓
+Collaborative analyst workflows
+      ↓
+Consent-based identity datasets
+      ↓
+Advanced explainable correlation models
 ```
 
-for end-to-end manual verification of the investigation workflow.
+The long-term goal is not simply to find more information.
 
-Testing should cover cases such as:
+It is to make identity intelligence:
 
-* valid and invalid image uploads;
-* consent enforcement;
-* image with readable contextual text;
-* image without useful text;
-* OCR correction;
-* reviewer-added clues;
-* query provenance;
-* duplicate query handling;
-* public discovery;
-* inaccessible sources;
-* same-name false candidates;
-* corroborating usernames;
-* organization matches;
-* explicit conflicts;
-* historical affiliations;
-* temporal consistency;
-* profile consolidation;
-* relationship graph generation;
-* ML-assisted scoring.
+### **more explainable**
 
----
+### **more auditable**
 
-# Example Reasoning
-
-Suppose the seed identity contains:
-
-```text
-Name: Alex Kumar
-Organization: Example Institute
-```
-
-The uploaded image contains a banner:
-
-```text
-CyberSec Summit 2026
-```
-
-Temporal Nexus may use the reviewed banner text to discover an event page.
-
-That event page alone is **not proof that Alex Kumar participated**.
-
-If the event page explicitly contains:
-
-```text
-Alex Kumar — Example Institute
-```
-
-that provides stronger corroborating evidence.
-
-If another public profile explicitly links to the same event page and also matches the known organization, the association becomes stronger.
-
-If another page belongs to a different Alex Kumar at another organization, it remains separate rather than being merged merely because the names match.
-
-That difference is the core of Temporal Nexus.
-
----
-
-# What Makes Temporal Nexus Different?
-
-Temporal Nexus is not designed as another:
-
-* username search engine;
-* reverse-image-search interface;
-* OSINT link aggregator;
-* social-profile finder.
-
-Its central output is not:
-
-> "Here are pages containing this name."
-
-Its goal is:
-
-> **"Here are the public records that can be responsibly connected, the evidence supporting those connections, their temporal context, and the information that remains unresolved."**
-
----
-
-# Limitations
-
-Temporal Nexus remains a hackathon prototype.
-
-Important limitations include:
-
-* public web coverage is incomplete;
-* search providers cannot guarantee discovery of every relevant page;
-* platforms may restrict direct page access;
-* JavaScript-heavy pages may not expose useful server-readable content;
-* OCR quality depends on image quality and visible text;
-* plain headshots may provide no textual image clues;
-* public information itself can be inaccurate;
-* copied biographies are not necessarily independent corroboration;
-* missing search results do not prove that information does not exist;
-* ML training uses controlled synthetic feature pairs rather than a large real-world identity dataset;
-* the ML score is not a calibrated probability;
-* evidence-backed association does not guarantee legal identity or account ownership.
-
-These limitations are shown rather than hidden because explainability is part of the project's design.
-
----
-
-# Future Scope
-
-Possible extensions include:
-
-* richer authorized identity-resolution evaluation datasets;
-* improved entity extraction;
-* larger-scale temporal reasoning;
-* stronger duplicate-source detection;
-* enhanced graph exploration;
-* configurable source policies;
-* exportable investigation reports;
-* controlled human-review workflows;
-* improved model training using properly consented labelled datasets;
-* additional evidence-quality metrics;
-* optional deployment architecture for multi-user investigations.
-
-Any future biometric component would require separate privacy, consent, accuracy, security and misuse analysis.
-
----
-
-# Hackathon Context
-
-**Project:** Temporal Nexus
-**Theme:** AI in Cybersecurity
-**Event:** NEURAX Hackathon 3.0
-
-Temporal Nexus was developed as a software-only cybersecurity prototype exploring how AI-assisted and deterministic techniques can help organize fragmented public digital evidence while preserving:
-
-* provenance;
-* uncertainty;
-* temporal context;
-* reviewer control;
-* security boundaries.
-
----
-
-# Responsible Use
-
-Temporal Nexus should only be used on information that the user is legally and ethically authorized to investigate.
-
-Public availability does not remove the need for responsible use.
-
-The project is intended for:
-
-* cybersecurity research;
-* authorized demonstrations;
-* consented identity-resolution experiments;
-* evidence-correlation research;
-* educational use.
-
-It should not be used for harassment, stalking, unauthorized surveillance or attempts to bypass privacy controls.
+### **more evidence-driven**
 
 ---
 
 <div align="center">
 
-## TEMPORAL NEXUS
+# ⚡ TEMPORAL NEXUS
 
-### Connect the traces. Resolve the identity.
+## **Connect the traces. Resolve the identity.**
 
-**Finding information is easy.
-Explaining why it belongs to the same identity is the real problem.**
+<br>
 
----
+![Evidence](https://img.shields.io/badge/EVIDENCE-FIRST-00D4FF?style=for-the-badge)
+![Explainable](https://img.shields.io/badge/EXPLAINABLE-BY_DESIGN-8B5CF6?style=for-the-badge)
+![Human](https://img.shields.io/badge/HUMAN-IN_THE_LOOP-F59E0B?style=for-the-badge)
 
-**What was found · Why it connects · When it applied · What remains uncertain**
+<br><br>
+
+### `WHAT WAS FOUND`
+
+### `WHY IT CONNECTS`
+
+### `WHEN IT APPLIED`
+
+### `WHAT REMAINS UNCERTAIN`
+
+<br>
+
+**Built for NEURAX Hackathon 3.0**
+
+**AI in Cybersecurity**
 
 </div>
