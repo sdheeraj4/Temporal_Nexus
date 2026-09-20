@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#081b25">
+  <title>Temporal Nexus · Identity Intelligence Workspace</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/report.js" defer></script>
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#case-input" aria-label="Temporal Nexus home">
+        <span class="brand-mark" aria-hidden="true">
+          <span class="brand-core"></span><span class="brand-dot dot-a"></span><span class="brand-dot dot-b"></span><span class="brand-dot dot-c"></span>
+        </span>
+        <span class="brand-copy">
+          <strong>Temporal Nexus</strong>
+          <small>Identity Intelligence Workspace</small>
+        </span>
+      </a>
+      <div class="topbar-meta">
+        <span class="privacy-pill"><span class="pulse-dot"></span>Authorized public-data workflow</span>
+        <a class="docs-link" href="/docs">API Docs ↗</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">NEURAX · PUBLIC IDENTITY RESOLUTION</p>
+          <h1 id="hero-title">Connect the traces.<br><span>Resolve the identity.</span></h1>
+          <p class="intro">Turn a consented image and limited context into a traceable evidence path — from image clues to candidate sources, structured observations, and identity correlation.</p>
+        </div>
+        <div class="hero-nexus" aria-hidden="true">
+          <div class="hero-node hero-node-core">Identity</div>
+          <div class="hero-node hero-node-a">Image</div>
+          <div class="hero-node hero-node-b">Sources</div>
+          <div class="hero-node hero-node-c">Evidence</div>
+          <div class="hero-line line-a"></div>
+          <div class="hero-line line-b"></div>
+          <div class="hero-line line-c"></div>
+        </div>
+      </section>
+
+      <nav class="pipeline" aria-label="Analysis pipeline">
+        <a class="pipeline-item is-active" data-stage="1" href="#case-input"><span>01</span><div><strong>Case Input</strong><small>Seed & image</small></div></a>
+        <div class="pipeline-connector"></div>
+        <a class="pipeline-item" data-stage="2" href="#clue-stage"><span>02</span><div><strong>Image Intel</strong><small>OCR clues</small></div></a>
+        <div class="pipeline-connector"></div>
+        <a class="pipeline-item" data-stage="3" href="#query-stage"><span>03</span><div><strong>Query Plan</strong><small>Reviewed clues</small></div></a>
+        <div class="pipeline-connector"></div>
+        <a class="pipeline-item" data-stage="4" href="#discovery-stage"><span>04</span><div><strong>Discovery</strong><small>Public candidates</small></div></a>
+        <div class="pipeline-connector"></div>
+        <a class="pipeline-item" data-stage="5" href="#analysis-stage"><span>05</span><div><strong>Source Intel</strong><small>Evidence extraction</small></div></a>
+        <div class="pipeline-connector"></div>
+        <a class="pipeline-item" data-stage="6" href="#correlation-stage"><span>06</span><div><strong>Correlation</strong><small>Identity assessment</small></div></a>
+      </nav>
+
+      <section id="case-input" class="section-block">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">01 · CASE INPUT</p>
+            <h2>Build the seed identity</h2>
+            <p>Start with only what is legitimately known. Supplied context and image-derived observations remain separate throughout the workflow.</p>
+          </div>
+          <span class="section-state">LOCAL PROCESSING</span>
+        </div>
+
+        <div class="workspace">
+          <section class="panel case-panel" aria-labelledby="input-title">
+            <div class="panel-heading">
+              <div class="panel-icon">IN</div>
+              <div><h3 id="input-title">Evidence input</h3><p>Image + optional seed context</p></div>
+            </div>
+            <!-- Prevent native navigation even if app.js fails to load or initialize. -->
+            <form id="input-form" novalidate onsubmit="return false;">
+              <fieldset id="input-fields">
+                <label for="image">Reference image <span class="field-required">Required</span></label>
+                <div class="upload-frame">
+                  <input id="image" name="image" type="file" accept="image/jpeg,image/png,.jpg,.jpeg,.png" required aria-describedby="image-help file-details">
+                  <p id="image-help" class="hint">JPEG/PNG · ≤ 5 MiB · ≤ 20 MP · actual content validated server-side</p>
+                  <p id="file-details" class="file-details">No image selected.</p>
+                  <img id="preview" class="preview" alt="Local preview of the selected image" hidden>
+                </div>
+
+                <div class="form-divider"><span>Known context</span></div>
+                <div class="field-grid">
+                  <div><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="off" placeholder="e.g. Alex Kumar"></div>
+                  <div><label for="username">Username</label><input id="username" name="username" type="text" autocomplete="off" spellcheck="false" placeholder="e.g. alexk_dev"></div>
+                  <div class="field-wide"><label for="organization">Organization</label><input id="organization" name="organization" type="text" autocomplete="off" placeholder="e.g. ABC College"></div>
+                  <div><label for="role">Role / designation</label><input id="role" name="role" type="text" maxlength="200" placeholder="e.g. Head of Department"></div>
+                  <div><label for="department">Department</label><input id="department" name="department" type="text" maxlength="200" placeholder="e.g. Computer Science"></div>
+                </div>
+                <p class="section-note">Optional supplied context · maximum 200 characters per field.</p>
+
+                <label class="consent" for="consent">
+                  <input id="consent" name="consent_confirmed" type="checkbox" required>
+                  <span><strong>Authorization confirmed.</strong> I am authorized to submit this image and context for processing.</span>
+                </label>
+                <div class="actions">
+                  <button id="extract" type="submit" value="ocr" disabled><span>Extract Image Text</span><b aria-hidden="true">→</b></button>
+                  <button id="validate" class="secondary" type="submit" value="validate" disabled>Validate Only</button>
+                  <button id="reset" class="reset" type="reset">Reset case</button>
+                </div>
+              </fieldset>
+            </form>
+          </section>
+
+          <section id="results" class="panel results intelligence-panel" aria-labelledby="results-title" aria-busy="false">
+            <div class="panel-heading">
+              <div class="panel-icon">RX</div>
+              <div><h3 id="results-title">Input intelligence</h3><p>Validation and OCR telemetry</p></div>
+            </div>
+            <p id="request-status" class="status-banner" role="status" aria-live="polite">The interface has not initialized. Open this page through FastAPI (normally http://127.0.0.1:8000/), not directly from disk or an IDE preview. If this message remains, reload and check that /static/app.js loads.</p>
+            <div id="result-content" class="result-content"></div>
+            <details id="raw-details" class="technical-details" hidden>
+              <summary>Developer payload · Raw JSON</summary>
+              <pre id="raw-json"></pre>
+            </details>
+            <div class="trust-note"><span>i</span><p>OCR observations are clues, not identity claims. Recognition confidence is never treated as identity confidence.</p></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="panel review-panel intelligence-workspace" aria-labelledby="review-title">
+        <div class="section-heading compact">
+          <div>
+            <p class="section-kicker">02–06 · IDENTITY INTELLIGENCE PIPELINE</p>
+            <h2 id="review-title">From clue review to evidence-backed association</h2>
+            <p>Every stage preserves provenance. Candidate pages remain unverified until their observations are compared with the seed identity.</p>
+          </div>
+          <span class="section-state">TRACEABLE EVIDENCE</span>
+        </div>
+
+        <section class="stage-card" id="clue-stage">
+          <div class="stage-head">
+            <div class="stage-index">02</div>
+            <div class="stage-title"><h3>Review image clues</h3><p>Correct OCR, classify meaning, and explicitly choose what enters the investigation.</p></div>
+            <span class="stage-badge">IMAGE INTEL</span>
+          </div>
+          <div class="stage-guidance">
+            <span>Original OCR stays immutable</span><span>Up to 50 clues</span><span>Missed visible text can be reviewer-added</span><span>“Other” clues do not build queries</span>
+          </div>
+          <p id="clue-status" class="status-line">Extract image text to review its lines. You can also prepare queries using supplied context alone.</p>
+          <fieldset id="review-fields"><div id="clue-list" class="clue-grid"></div></fieldset>
+          <div class="stage-action-row">
+            <button id="add-visual-clue" class="secondary" type="button" disabled>+ Add missed visual clue</button>
+            <button id="prepare" type="button" disabled>Prepare Search Queries <b aria-hidden="true">→</b></button>
+            <span>Reviewer-added clues are explicitly marked and never presented as OCR detections.</span>
+          </div>
+        </section>
+
+        <section class="stage-card" id="query-stage">
+          <div class="stage-head">
+            <div class="stage-index">03</div>
+            <div class="stage-title"><h3>Query intelligence</h3><p>See exactly how supplied context and reviewed image clues become discovery queries.</p></div>
+            <span class="stage-badge">NO SEARCH YET</span>
+          </div>
+          <p id="plan-status" class="status-line" role="status" aria-live="polite">No queries prepared.</p>
+          <div id="query-results" class="card-grid"></div>
+        </section>
+
+        <section class="stage-card" id="discovery-stage">
+          <div class="stage-head">
+            <div class="stage-index">04</div>
+            <div class="stage-title"><h3>Candidate source discovery</h3><p>Search public web indexes for candidate evidence sources — never treat a result as a verified identity.</p></div>
+            <span class="stage-badge caution">UNVERIFIED</span>
+          </div>
+          <div class="stage-action-row">
+            <button id="discover" type="button" disabled>Discover Public Sources <b aria-hidden="true">→</b></button>
+            <span>Tavily Basic Search · up to six prepared queries · image is not transmitted.</span>
+          </div>
+          <p id="discovery-status" class="status-line" role="status" aria-live="polite">Prepare queries before running discovery.</p>
+          <div id="discovery-results" class="discovery-grid"></div>
+        </section>
+
+        <section class="stage-card" id="analysis-stage">
+          <div class="stage-head">
+            <div class="stage-index">05</div>
+            <div class="stage-title"><h3>Source intelligence</h3><p>Read selected public pages and keep identity observations separate from page authors, publishers, and site-owned accounts.</p></div>
+            <span class="stage-badge">MAX 3 SOURCES</span>
+          </div>
+          <div class="stage-action-row">
+            <button id="analyze-sources" type="button" disabled>Analyze Selected Sources <b aria-hidden="true">→</b></button>
+            <span>Accessible public HTML/text only. No bypassing restricted content.</span>
+          </div>
+          <p id="analysis-status" class="status-line" role="status" aria-live="polite">Discover candidate sources, then select up to three to analyze.</p>
+          <div id="analysis-results" class="analysis-grid"></div>
+        </section>
+
+        <section class="stage-card correlation-stage" id="correlation-stage">
+          <div class="stage-head">
+            <div class="stage-index">06</div>
+            <div class="stage-title"><h3>Identity evidence report</h3><p>Compare seed signals with source evidence, surface corroboration, and keep missing evidence distinct from contradictions.</p></div>
+            <span class="stage-badge accent">CORE OUTPUT</span>
+          </div>
+          <div class="stage-action-row">
+            <button id="correlate" type="button" disabled>Correlate Identity Evidence <b aria-hidden="true">→</b></button>
+            <span>A supported association is evidence-backed — not absolute proof of identity.</span>
+          </div>
+          <p id="correlation-status" class="status-line" role="status" aria-live="polite">Analyze at least one candidate source before correlation.</p>
+          <div id="correlation-results" class="correlation-output"></div>
+        </section>
+      </section>
+
+      <footer>
+        <div><strong>Temporal Nexus</strong><span> · </span></div>
+        <p>Images and context are not saved by this interface. Public-source observations remain traceable to their evidence.</p>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
