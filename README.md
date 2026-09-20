@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚡ TEMPORAL NEXUS
+#  TEMPORAL NEXUS
 
 ### **Connect the traces. Resolve the identity.**
 
